@@ -106,3 +106,43 @@ function checkwin(currentClass) {
         })
     })
 }
+
+//Dark-Light Mode
+const toggleSwitch =document.querySelector('input[type="checkbox"]');
+const toggleIcon = document.getElementById('toggle-icon');
+
+//Dark Mode Styles
+
+const darkmode=()=>{
+    toggleIcon.children[0].textContent="Dark Mode"
+    toggleIcon.children[1].classList.replace('fa-sun','fa-moon');
+  
+}
+//Light Mode Styles
+const lightmode=()=>{
+    toggleIcon.children[0].textContent="Light Mode"
+    toggleIcon.children[1].classList.replace('fa-moon','fa-sun');
+    
+}
+
+//Switch Theme Dynamically
+const switchTheme=(event)=>{
+    if(event.target.checked){
+        document.documentElement.setAttribute('data-theme','dark');
+        darkmode();
+      
+       
+    } else {
+        document.documentElement.setAttribute('data-theme','light')
+        lightmode();
+     
+    }
+   
+}
+
+toggleSwitch.addEventListener('change',switchTheme);
+
+
+
+
+
